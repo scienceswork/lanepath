@@ -17,11 +17,11 @@
         <div class="collapse navbar-collapse navbar-collapse-lanepath">
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li class="{{ Route::currentRouteName() == 'home' ? 'active' : '' }}">
                     <a href="/">首页</a>
                 </li>
-                <li>
-                    <a href="#">作品</a>
+                <li class="{{ navbarActive('video') }}">
+                    <a href="{{ route('web.video.index') }}">作品</a>
                 </li>
                 <li>
                     <a href="#">美食</a>
@@ -43,20 +43,46 @@
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
-            <!-- 注册/登录 -->
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">
-                        <i class="icon icon-user"></i>
-                        登录
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon icon-pencil"></i>
-                        注册
-                    </a>
-                </li>
+                {{--判断是否登录--}}
+                @if(Auth::check())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            {{ Auth::user()->name }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">个人主页</a>
+                            </li>
+                            <li>
+                                <a href="#">账户设置</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="javascript:;" id="logout-btn">退出登录</a>
+                            </li>
+                            <!-- 退出登录 -->
+                            <form action="{{ route('logout') }}" id="logout-form" method="post">
+                                {{ csrf_field() }}
+                            </form>
+                        </ul>
+                    </li>
+                @else
+                    <!-- 注册/登录 -->
+                    <li>
+                        <a href="{{ route('login') }}">
+                            <i class="icon icon-user"></i>
+                            登录
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}">
+                            <i class="icon icon-pencil"></i>
+                            注册
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

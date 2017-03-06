@@ -177,7 +177,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        // 面包屑导航
+        \DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        // ide帮助助手
+        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*
@@ -225,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

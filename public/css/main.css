@@ -1,0 +1,102 @@
+html, body {
+  height: 100%;
+  background-color: #EAEAEA;
+}
+
+::-moz-selection {
+  background: #3071b9;
+  color: #fff;
+}
+
+::selection {
+  background: #3071b9;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #3071b9;
+  color: #fff;
+}
+
+::-webkit-selection {
+  background: #3071b9;
+  color: #fff;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:before {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.navbar-default {
+  background-color: #fff;
+  box-shadow: 0 0 8px #ccc;
+  -ms-box-shadow: 0 0 8px #ccc;
+  -moz-box-shadow: 0 0 8px #ccc;
+  -webkit-box-shadow: 0 0 8px #ccc;
+}
+
+.breadcrumb {
+  background-color: #fff;
+}
+
+.wrap {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+
+.footer {
+  background-color: #f00;
+  margin-top: 22px;
+  width: 100%;
+  padding-top: 22px;
+  color: #8A8A8A;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+}
+
+.video-play-btn {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -17px;
+  background: url("../image/video_playicon.png");
+  margin-top: -70px;
+  z-index: 999;
+}
+
+.xd-text-select span {
+  height: 22px;
+  margin-right: 5px;
+}
+
+.xd-text-select span a {
+  color: #666;
+  padding: 2px 5px;
+  font-size: 14px;
+}
+
+.xd-text-select span.on a {
+  background: #3071b9;
+  color: #FFF;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"main.js","sourcesContent":[";$(function () {\n    // 退出登录\n    $('#logout-btn').on('click', function () {\n        $('#logout-form').submit();\n    });\n});"]}

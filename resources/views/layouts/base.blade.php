@@ -7,24 +7,31 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         {{--网页标题--}}
-        @section('title')带你足不出户观世界@show - 胡同小道
+        胡同小道 - @section('title')带你足不出户观世界@show
     </title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}"/>
     {{--样式表，倒入基础样式表--}}
     @section('stylesheet')
         <link rel="stylesheet" href="{{ asset('lib/zui/css/zui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     @show
 </head>
 <body>
-{{--导航--}}
-@include('layouts.partials.navbar')
-{{--内容区域--}}
-<div class="container">
+<div class="wrap">
+    {{--导航--}}
+    @include('layouts.partials.navbar')
+    {{--内容区域--}}
+    <div class="container" style="padding: 60px 10px 0;padding-bottom: 180px !important;">
+        @yield('body')
+    </div>
+    {{--底部信息--}}
+    @include('layouts.partials.footer')
+    {{--JavaScript--}}
+    @section('javascript')
+        <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('lib/zui/js/zui.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+    @show
 </div>
-@yield('body')
-{{--JavaScript--}}
-@section('javascript')
-    <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('lib/zui/js/zui.min.js') }}"></script>
-@show
 </body>
 </html>

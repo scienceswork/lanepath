@@ -20,6 +20,12 @@ elixir((mix) => {
         ], 'public/lib/jquery')
         .copy([
             'resources/assets/lib/zui/dist'
-        ], 'public/lib/jquery');
+        ], 'public/lib/jquery')
+        .sass([
+            'resources/assets/sass/main.scss'
+        ], 'public/css/main.css')
+        .scripts([
+            'resources/assets/js/main.js'
+        ], 'public/js/main.js');
     ;
 });
