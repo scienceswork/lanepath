@@ -31,7 +31,7 @@
                             <hr>
                         </div>
                         <div class="col-md-3">
-                            <a class="card" href="###">
+                            <a class="card" href="{{ route('web.video.show', 1) }}">
                                 <div class="video-play-btn"></div>
                                 <img src="//i3.ergengtech.com/media/2017/03/061488754704449912.jpg_vcover" alt="">
                                 <div class="caption">
@@ -46,7 +46,7 @@
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a class="card" href="###">
+                            <a class="card" href="#">
                                 <div class="video-play-btn"></div>
                                 <img src="//i2.ergengtech.com/business/project/2017/03/06/b011bfb36435b67aa7c612f26581a5c7.jpg_vcover"
                                      alt="">

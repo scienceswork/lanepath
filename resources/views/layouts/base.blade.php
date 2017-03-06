@@ -21,7 +21,7 @@
     {{--导航--}}
     @include('layouts.partials.navbar')
     {{--内容区域--}}
-    <div class="container" style="padding: 60px 10px 0;padding-bottom: 180px !important;">
+    <div class="container" style="padding: 70px 10px 0;padding-bottom: 180px !important;">
         @yield('body')
     </div>
     {{--底部信息--}}

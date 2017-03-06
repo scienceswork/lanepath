@@ -1,5 +1,5 @@
 {{--导航--}}
-<header class="navbar navbar-default navbar-fixed-top">
+<header class="navbar navbar-default navbar-fixed-top navbar-white">
     <div class="container">
         <!-- 导航头部 -->
         <div class="navbar-header">
@@ -32,8 +32,8 @@
                 <li>
                     <a href="#">读书</a>
                 </li>
-                <li>
-                    <a href="#">关于我们</a>
+                <li class="{{ navbarActive('about') }}">
+                    <a href="{{ route('web.page.about') }}">关于我们</a>
                 </li>
             </ul>
             <!-- 搜索 -->

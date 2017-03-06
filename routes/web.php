@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 // 作品
 Route::get('video', 'VideoController@index')->name('web.video.index');
+Route::get('video/{id}', 'VideoController@show')->name('web.video.show');
+
+// 静态页面
+Route::get('about', 'PageController@about')->name('web.page.about');

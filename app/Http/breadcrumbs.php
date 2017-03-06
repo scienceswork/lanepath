@@ -23,3 +23,9 @@ Breadcrumbs::register('video.index', function ($breadcrumbs) {
     $breadcrumbs->push('作品', route('web.video.index'));
 });
 
+// 首页 > 关于我们
+Breadcrumbs::register('page.about', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('关于我们', route('web.page.about'));
+});
+
