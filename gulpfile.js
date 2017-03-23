@@ -19,8 +19,8 @@ elixir((mix) => {
             'resources/assets/lib/jquery/dist'
         ], 'public/lib/jquery')
         .copy([
-            'resources/assets/lib/zui/dist'
-        ], 'public/lib/jquery')
+            'resources/assets/lib/bootstrap/dist'
+        ], 'public/lib/bootstrap')
         .sass([
             'resources/assets/sass/main.scss'
         ], 'public/css/main.css')

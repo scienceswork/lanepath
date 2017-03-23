@@ -8,11 +8,22 @@
             {{--面包屑导航--}}
             {!! Breadcrumbs::render('video.index') !!}
         </div>
+        <div class="col-md-9">
+            <div class="video-player">
+                <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
+                <script type="text/javascript">
+                    var player = new CloudVodPlayer();
+                    var letv_player = "fe54ae0481";
+                    player.init({"uu":"fkijuzo6np","vu":"6547f145bb","auto_play":0,"gpcflag":1,"lang":"zh_CN" ,"pu":letv_player});
+                </script>
+            </div>
+        </div>
+        <div class="col-md-3">
+            123
+        </div>
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    视频播放
-                </div>
+            <div class="box" style="margin-top:20px;">
+                123
             </div>
         </div>
         <div class="col-md-9">

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => 'qiniu',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,6 +62,18 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'http://on85sivkn.bkt.clouddn.com', //你的七牛域名
+                'https'     => 'dn-yourdomain.qbox.me',         //你的HTTPS域名
+                'custom'    => 'static.abc.com',                //你的自定义域名
+            ],
+            'access_key' => env('QINIU_AK', ''), // AccessKey
+            'secret_key' => env('QINIU_SK', ''),  // SecretKey
+            'bucket' => env('QINIU_BUCKET', ''),  // Bucket名字
+            'notify_url'=> env('QINIU_NOTIFY', ''),  // 持久化处理回调地址
+        ],
     ],
 
 ];

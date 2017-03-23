@@ -7,12 +7,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         {{--网页标题--}}
-        胡同小道 - @section('title')带你足不出户观世界@show
+        @section('title')带你足不出户观世界@show - 胡同小道
     </title>
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}"/>
     {{--样式表，倒入基础样式表--}}
     @section('stylesheet')
-        <link rel="stylesheet" href="{{ asset('lib/zui/css/zui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     @show
 </head>
@@ -21,7 +21,8 @@
     {{--导航--}}
     @include('layouts.partials.navbar')
     {{--内容区域--}}
-    <div class="container" style="padding: 70px 10px 0;padding-bottom: 180px !important;">
+    <div class="container" style="padding: 60px 10px 70px 10px;padding-bottom: 180px !important;">
+        @include('flash.message')
         @yield('body')
     </div>
     {{--底部信息--}}
@@ -29,7 +30,7 @@
     {{--JavaScript--}}
     @section('javascript')
         <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('lib/zui/js/zui.min.js') }}"></script>
+        <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
     @show
 </div>

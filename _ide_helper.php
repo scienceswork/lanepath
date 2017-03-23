@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.30 on 2017-03-06.
+ * Generated for Laravel 5.3.30 on 2017-03-22.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1520,7 +1520,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */
         public static function user()
@@ -1633,7 +1633,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */
         public static function loginUsingId($id, $remember = false)
@@ -1645,7 +1645,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \App\Models\User|false 
          * @static 
          */
         public static function onceUsingId($id)
@@ -1748,7 +1748,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \App\Models\User|null 
          * @static 
          */
         public static function getUser()
@@ -1794,7 +1794,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @static 
          */
         public static function getLastAttempted()
@@ -1838,7 +1838,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if the current user is authenticated.
          *
-         * @return \App\User 
+         * @return \App\Models\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */
@@ -11213,6 +11213,109 @@ namespace DaveJamesMiller\Breadcrumbs {
     }         
 }
     
+namespace Germey\Geetest {
+
+    class Geetest {
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getGeetestUrl()
+        {
+            return \Germey\Geetest\GeetestLib::getGeetestUrl();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $geetestUrl
+         * @static 
+         */
+        public static function setGeetestUrl($geetest_url)
+        {
+            return \Germey\Geetest\GeetestLib::setGeetestUrl($geetest_url);
+        }
+        
+        /**
+         * Check Geetest server is running or not.
+         *
+         * @param null $user_id
+         * @return int 
+         * @static 
+         */
+        public static function preProcess($user_id = null)
+        {
+            return \Germey\Geetest\GeetestLib::preProcess($user_id);
+        }
+        
+        /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function getResponseStr()
+        {
+            return \Germey\Geetest\GeetestLib::getResponseStr();
+        }
+        
+        /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function getResponse()
+        {
+            return \Germey\Geetest\GeetestLib::getResponse();
+        }
+        
+        /**
+         * Get success validate result.
+         *
+         * @param $challenge
+         * @param $validate
+         * @param $seccode
+         * @param null $user_id
+         * @return int 
+         * @static 
+         */
+        public static function successValidate($challenge, $validate, $seccode, $user_id = null)
+        {
+            return \Germey\Geetest\GeetestLib::successValidate($challenge, $validate, $seccode, $user_id);
+        }
+        
+        /**
+         * Get fail result.
+         *
+         * @param $challenge
+         * @param $validate
+         * @param $seccode
+         * @return int 
+         * @static 
+         */
+        public static function failValidate($challenge, $validate, $seccode)
+        {
+            return \Germey\Geetest\GeetestLib::failValidate($challenge, $validate, $seccode);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $product
+         * @static 
+         */
+        public static function render($product = 'float')
+        {
+            return \Germey\Geetest\GeetestLib::render($product);
+        }
+        
+    }         
+}
+    
     
 namespace {
 
@@ -13114,6 +13217,8 @@ namespace {
         }
     
     class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade {}
+    
+    class Geetest extends \Germey\Geetest\Geetest {}
     
 }
 

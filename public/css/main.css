@@ -1,11 +1,15 @@
 html, body {
   height: 100%;
-  background-color: #EAEAEA;
+  background-color: #f5f5f5;
   font-size: 14px;
 }
 
 a {
   color: #3071b9;
+}
+
+textarea.form-control {
+  height: 100px;
 }
 
 ::-moz-selection {
@@ -69,12 +73,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 15px;
 }
 
+.navbar-default .navbar-nav > li > a:hover {
+  background: #fff;
+}
+
 .navbar-default .navbar-form {
   margin: 8px 0;
 }
 
 .breadcrumb {
-  background-color: #fff;
+  background-color: inherit;
+  padding-left: 0;
+  margin-bottom: 10px;
 }
 
 .wrap {
@@ -110,8 +120,20 @@ h1, h2, h3, h4, h5, h6 {
   top: 50%;
   margin-left: -17px;
   background: url("../image/video_playicon.png");
-  margin-top: -70px;
+  margin-top: -14px;
   z-index: 999;
+}
+
+.video-times {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  z-index: 200;
+  color: #a5a5a5;
+  background: rgba(32, 32, 32, 0.61);
+  height: 20px;
+  line-height: 20px;
+  padding: 1px 5px;
 }
 
 .xd-text-select span {
@@ -172,10 +194,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
 }
 
-.comment > .avatar {
-  margin-top: 0;
-}
-
 .navbar-white {
   background-color: #fff;
 }
@@ -192,6 +210,171 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-white li a {
   background: #fff;
+}
+
+.xd-nav a {
+  color: #555;
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 0;
+}
+
+.xd-nav a:first-child {
+  border-top: 1px solid #f2f2f2;
+}
+
+.xd-nav a.active {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.xd-nav a.active:hover, .xd-nav a.active:link, .xd-nav a.active:focus, .xd-nav a.active:active {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.btn-primary {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.course-list .course-item {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  border: 1px solid #e4ecf3;
+  background-color: #fff;
+}
+
+.course-list .course-item .course-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.course-list .course-item .course-img a {
+  display: block;
+}
+
+.course-list .course-item .course-img .img-responsive {
+  width: 100%;
+  padding: 0;
+}
+
+.course-list .course-item .title {
+  margin-top: 10px;
+  padding: 0 10px;
+  display: block;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.course-list .course-item .title a:hover, .course-list .course-item .title a:link, .course-list .course-item .title a:active, .course-list .course-item .title a:focus {
+  text-decoration: none;
+}
+
+.course-list .course-item .metas {
+  position: relative;
+  padding: 10px;
+  color: #c1c1c1;
+}
+
+.course-list .course-item .metas i {
+  margin-right: 3px;
+}
+
+.course-list .course-item .metas .comment {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.video-player {
+  height: 550px;
+}
+
+@media (min-width: 992px) {
+  .course-list .course-item {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .course-list .course-item:hover {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+}
+
+.link-dark {
+  color: #313131 !important;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.box {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+}
+
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group .list-group-item {
+  border-radius: 0;
+}
+
+.padding-md {
+  padding: 15px;
+}
+
+.border-eee {
+  border: 1px solid #eee;
+}
+
+.panel-white {
+  background-color: #fff !important;
+}
+
+.xd-message {
+  height: 50px !important;
+  resize: none;
+  font-size: 12px;
+}
+
+.xd-message-btn {
+  height: 50px;
+}
+
+.errors {
+  border-radius: 0;
+}
+
+.errors ul {
+  padding: 0;
+}
+
+.errors li {
+  list-style: none;
+}
+
+.nav-avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -5px;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */

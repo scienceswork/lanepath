@@ -2,7 +2,7 @@
 
 @section('body')
     {{--面包屑导航--}}
-    {!! Breadcrumbs::render('login') !!}
+    {{--{!! Breadcrumbs::render('login') !!}--}}
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-default">
@@ -30,7 +30,8 @@
                             <label for="password" class="col-md-2 control-label">密码：</label>
 
                             <div class="col-md-8">
-                                <input id="password" type="password" class="form-control" name="password" required placeholder="输入您的账户密码">
+                                <input id="password" type="password" class="form-control" name="password" required
+                                       placeholder="输入您的账户密码">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -39,7 +40,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-2">
                                 <div class="checkbox">

@@ -4,22 +4,43 @@
 
 @section('body')
     <div class="row">
-        <div class="col-md-12">
-            {!! Breadcrumbs::render('page.about') !!}
-        </div>
         <div class="col-md-3">
-            <ul class="nav nav-primary nav-stacked nav-white">
-                <li class="active">
-                    <a href="###">首页 </a>
+            <ul class="nav nav-pills nav-stacked setting-nav text-center">
+                <li role="presentation" class="{{ navbarRouteActive('web.setting.index') }}">
+                    <a href="{{ route('web.setting.index') }}">
+                        <i class="glyphicon glyphicon-user"></i>&nbsp;
+                        我的信息
+                    </a>
                 </li>
-                <li>
-                    <a href="###">动态 <span class="label label-badge label-success pull-right">4</span></a>
+                <li role="presentation" class="">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-picture"></i>&nbsp;
+                        我的头像
+                    </a>
                 </li>
-                <li>
-                    <a href="###">项目 </a>
+                <li role="presentation" class="{{ navbarRouteActive('web.setting.security') }}">
+                    <a href="{{ route('web.setting.security') }}">
+                        <i class="glyphicon glyphicon-lock"></i>&nbsp;
+                        账号安全
+                    </a>
                 </li>
-                <li>
-                    <a href="###">更多 </a>
+                <li role="presentation" class="{{ navbarRouteActive('web.setting.domain') }}">
+                    <a href="{{ route('web.setting.domain') }}">
+                        <i class="glyphicon glyphicon-home"></i>&nbsp;
+                        我的小道
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-send"></i>&nbsp;
+                        旅行足迹
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-book"></i>&nbsp;
+                        读书杂烩
+                    </a>
                 </li>
             </ul>
         </div>

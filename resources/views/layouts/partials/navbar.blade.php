@@ -23,14 +23,14 @@
                 <li class="{{ navbarActive('video') }}">
                     <a href="{{ route('web.video.index') }}">作品</a>
                 </li>
-                <li>
-                    <a href="#">美食</a>
+                <li class="{{ navbarActive('food') }}">
+                    <a href="{{ route('web.food.index') }}">美食</a>
                 </li>
-                <li>
-                    <a href="#">旅游</a>
+                <li class="{{ navbarActive('tourism') }}">
+                    <a href="{{ route('web.tourism.index') }}">旅游</a>
                 </li>
-                <li>
-                    <a href="#">读书</a>
+                <li class="{{ navbarActive('book') }}">
+                    <a href="{{ route('web.book.index') }}">读书</a>
                 </li>
                 <li class="{{ navbarActive('about') }}">
                     <a href="{{ route('web.page.about') }}">关于我们</a>
@@ -47,20 +47,37 @@
                 {{--判断是否登录--}}
                 @if(Auth::check())
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                        <a href="#"
+                           class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true"
+                           style="height: 50px;">
+                            <img src="{{ avatar_100(Auth::user()->avatar) }}"
+                                 alt="{{ Auth::user()->name }}"
+                                 class="nav-avatar">
                             {{ Auth::user()->name }}
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">个人主页</a>
+                                <a href="{{ route('web.user.show', Auth::id()) }}">
+                                    <i class="glyphicon glyphicon-road"></i>
+                                    我的小道
+                                </a>
                             </li>
                             <li>
-                                <a href="#">账户设置</a>
+                                <a href="{{ route('web.setting.index') }}">
+                                    <i class="glyphicon glyphicon-cog"></i>
+                                    设置
+                                </a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="javascript:;" id="logout-btn">退出登录</a>
+                                <a href="javascript:;" id="logout-btn">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                    退出登录
+                                </a>
                             </li>
                             <!-- 退出登录 -->
                             <form action="{{ route('logout') }}" id="logout-form" method="post">

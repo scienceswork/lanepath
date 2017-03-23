@@ -29,3 +29,21 @@ Breadcrumbs::register('page.about', function ($breadcrumbs) {
     $breadcrumbs->push('关于我们', route('web.page.about'));
 });
 
+// 首页 > 美食
+Breadcrumbs::register('food.index', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('美食', route('web.food.index'));
+});
+
+// 首页 > 读书
+Breadcrumbs::register('book.index', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('读书', route('web.book.index'));
+});
+
+// 首页 > 旅游
+Breadcrumbs::register('tourism.index', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('旅游', route('web.tourism.index'));
+});
+

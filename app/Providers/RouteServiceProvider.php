@@ -23,7 +23,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 全局限制id为数字
+        $this->app['router']->pattern('id', '[0-9]+');
 
         parent::boot();
     }

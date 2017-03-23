@@ -181,6 +181,10 @@ return [
         \DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         // ide帮助助手
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        // 极验验证码
+        \Germey\Geetest\GeetestServiceProvider::class,
+        // 七牛云SDK Laravel版
+        \zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
     ],
 
     /*
@@ -229,6 +233,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Geetest' => \Germey\Geetest\Geetest::class,
     ],
+
+    // cdn地址
+    'cdn_url' => env('QINIU_WEB'),
 
 ];
