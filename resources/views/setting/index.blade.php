@@ -54,6 +54,14 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="phone" class="col-md-2 control-label">
+                                手机号码：
+                            </label>
+                            <div class="col-md-5">
+                                <input type="phone" class="form-control" placeholder="请输入你的手机号码" value="{{ Auth::user()->phone }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="intro" class="col-md-2 control-label">
                                 个人简介：
                             </label>

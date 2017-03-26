@@ -6,20 +6,111 @@
     <div class="row">
         <div class="col-md-12">
             {{--面包屑导航--}}
-            {!! Breadcrumbs::render('video.index') !!}
+            {!! Breadcrumbs::render('video.show') !!}
         </div>
-        <div class="col-md-9">
-            <div class="video-player">
-                <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
-                <script type="text/javascript">
-                    var player = new CloudVodPlayer();
-                    var letv_player = "fe54ae0481";
-                    player.init({"uu":"fkijuzo6np","vu":"6547f145bb","auto_play":0,"gpcflag":1,"lang":"zh_CN" ,"pu":letv_player});
-                </script>
+        <div class="video-content row">
+            <!-- 视频 -->
+            <div class="col-md-9 video-view">
+                <div class="video-player">
+                    <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
+                    <script type="text/javascript">
+                        var player = new CloudVodPlayer();
+                        var letv_player = "fe54ae0481";
+                        player.init({"uu":"fkijuzo6np","vu":"6547f145bb","auto_play":0,"gpcflag":1,"lang":"zh_CN" ,"pu":letv_player});
+                    </script>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            123
+            <!-- 推荐列表 -->
+            <div class="col-md-3 video-tab">
+                <p class="tab-title text-center">
+                    <i class="glyphicon glyphicon-star-empty"></i>
+                    推荐视频
+                </p>
+                <div class="video-tab-content">
+                    <ul>
+                        <li class="tab-item media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="http://i2.ergengtech.com/media/2017/03/231490251640931567.jpg_vcover"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="title">
+                                    飞车女孩
+                                </a>
+                                <p class="num">
+                                    120人看过
+                                </p>
+                            </div>
+                        </li>
+                        <li class="tab-item media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="http://i3.ergengtech.com/media/2017/03/231490249204731044.jpg_vcover"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="title">
+                                    画蛋壳爷爷
+                                </a>
+                                <p class="num">
+                                    871人看过
+                                </p>
+                            </div>
+                        </li>
+                        <li class="tab-item media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="http://i2.ergengtech.com/media/2017/03/221490163533861061.jpg_vcover"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="title">
+                                    弹指怪才
+                                </a>
+                                <p class="num">
+                                    1902人看过
+                                </p>
+                            </div>
+                        </li>
+                        <li class="tab-item media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="http://i2.ergengtech.com/media/2017/03/221490153368716726.jpg_vcover"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="title">
+                                    藤井树观影团：《美女与野兽》
+                                </a>
+                                <p class="num">
+                                    265人看过
+                                </p>
+                            </div>
+                        </li>
+                        <li class="tab-item media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img src="http://i3.ergengtech.com/media/2017/03/221490162177886060.jpg_vcover"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="#" class="title">
+                                    梦花街19号馄饨
+                                </a>
+                                <p class="num">
+                                    657人看过
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-md-12">
             <div class="box" style="margin-top:20px;">

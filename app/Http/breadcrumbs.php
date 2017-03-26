@@ -23,6 +23,11 @@ Breadcrumbs::register('video.index', function ($breadcrumbs) {
     $breadcrumbs->push('作品', route('web.video.index'));
 });
 
+Breadcrumbs::register('video.show', function ($breadcrumbs) {
+    $breadcrumbs->parent('video.index');
+    $breadcrumbs->push('听见火塘', route('web.video.index'));
+});
+
 // 首页 > 关于我们
 Breadcrumbs::register('page.about', function ($breadcrumbs) {
     $breadcrumbs->parent('home');

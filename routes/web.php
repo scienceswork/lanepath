@@ -30,18 +30,30 @@ Route::get('about', 'PageController@about')->name('web.page.about');
 Route::get('book', 'BookController@index')->name('web.book.index');
 
 // 美食
-Route::get('food', 'FoodController@index')->name('web.food.index');
+Route::group(['prefix' => 'food'], function () {
+    // 首页
+    Route::get('/', 'FoodController@index')->name('web.food.index');
+    // 创建
+    Route::get('create', 'FoodController@create')->name('web.food.create');
+});
+
 
 // 旅游
 Route::get('tourism', 'TourismController@index')->name('web.tourism.index');
 
 // 用户首页
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user', 'middleware' => 'verified_email'], function () {
     // 用户中心
     Route::get('/', 'UserController@index')->name('web.user.index');
     // 个人首页
     Route::get('{id}', 'UserController@show')->name('web.user.show');
 });
+
+// 验证邮箱
+Route::get('email-verification-required', 'UserController@emailVerificationRequired')
+    ->name('email-verification-required');
+Route::post('send-verification-mail', 'UserController@sendActiveMail')
+    ->name('send-verification-mail');
 
 // 设置
 Route::group(['prefix' => 'setting'], function () {

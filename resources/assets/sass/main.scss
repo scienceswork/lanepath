@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   background-color: #f5f5f5;
   font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
 }
 
 a {
@@ -309,9 +310,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.video-player {
-  height: 550px;
-}
+
 
 // 媒体查询
 @media (min-width: 992px) {
@@ -385,4 +384,73 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -5px;
   border: 1px solid white;
   border-radius: 50%;
+}
+
+.video-content {
+  margin: 0 15px;
+  .video-view, .video-tab {
+    padding: 0;
+  }
+  .video-player {
+    height: 100%;
+  }
+  .video-view {
+    background-color: #000;
+    position: relative;
+    height: 500px;
+  }
+  .video-tab {
+    height: 500px;
+    background-color: #212121;
+    color: #ffffff;
+    .tab-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: lighter;
+      width: 50%;
+      height: 60px;
+      line-height: 60px;
+    }
+  }
+  .video-tab-content {
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+    .tab-item {
+      padding: 10px 20px 10px 15px;
+      margin: 0;
+    }
+    img {
+      width: 118px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+  }
+  .title {
+    display: inline-block;
+    padding-bottom: 8px;
+    max-height: 42px;
+    line-height: 21px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(255, 255, 255, 0.8);
+    &:hover {
+      text-decoration: none;
+      color: #46c37b;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+  }
+  .num {
+    color: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    height: 21px;
+    margin: 0;
+  }
 }

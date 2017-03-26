@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4727678b596bfb963ba9fb7dee6d32d1",
-    "content-hash": "17dee703816d1a603ee8672381389a92",
+    "hash": "c78153b981976c635bc86bc40541f6c7",
+    "content-hash": "8119fdad240afe8d0ad92611a2f43b55",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -326,6 +326,66 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "encore/laravel-admin",
+            "version": "v1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/z-song/laravel-admin.git",
+                "reference": "f3bcefeb440d960c29ae628d0e30709c51b7aec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/z-song/laravel-admin/f3bcefeb440d960c29ae628d0e30709c51b7aec8.zip",
+                "reference": "f3bcefeb440d960c29ae628d0e30709c51b7aec8",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "intervention/image": "~2.3",
+                "laravel/laravel": "~5.3",
+                "phpunit/phpunit": "~4.0",
+                "symfony/css-selector": "2.8.*|3.0.*",
+                "symfony/dom-crawler": "2.8.*|3.0.*"
+            },
+            "suggest": {
+                "intervention/image": "Required to handling and manipulation upload images (~2.3).",
+                "spatie/eloquent-sortable": "Required to built orderable gird."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zsong",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "laravel admin",
+            "homepage": "https://github.com/z-song/laravel-admin",
+            "keywords": [
+                "admin",
+                "chart",
+                "form",
+                "grid",
+                "laravel"
+            ],
+            "time": "2017-03-15 05:09:48"
+        },
+        {
             "name": "germey/geetest",
             "version": "v2.0.2",
             "source": {
@@ -520,6 +580,59 @@
                 "tokenizer"
             ],
             "time": "2016-12-07 09:37:55"
+        },
+        {
+            "name": "jrean/laravel-user-verification",
+            "version": "v3.0.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jrean/laravel-user-verification.git",
+                "reference": "cd67ba60706b317b252ec5e226c5a32971c0411a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/jrean/laravel-user-verification/cd67ba60706b317b252ec5e226c5a32971c0411a.zip",
+                "reference": "cd67ba60706b317b252ec5e226c5a32971c0411a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.12",
+                "fzaninotto/faker": "^1.6",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "sllh/php-cs-fixer-styleci-bridge": "^2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jrean\\UserVerification\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean Ragouin",
+                    "email": "go@askjong.com"
+                }
+            ],
+            "description": "User Email Verification For Laravel 5.*",
+            "keywords": [
+                "email activation",
+                "email verification",
+                "framework",
+                "laravel",
+                "user activation",
+                "user verification"
+            ],
+            "time": "2017-01-15 14:41:08"
         },
         {
             "name": "laravel/framework",
@@ -1005,6 +1118,56 @@
                 "random"
             ],
             "time": "2016-11-07 23:38:38"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "9ead747663bb1b1ae017dfa0d152aca87792b42f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/nrk/predis/9ead747663bb1b1ae017dfa0d152aca87792b42f.zip",
+                "reference": "9ead747663bb1b1ae017dfa0d152aca87792b42f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-05-30 15:25:52"
         },
         {
             "name": "psr/log",

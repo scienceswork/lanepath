@@ -10,7 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateUserInfoRequest extends FormRequest
 {
     protected $allow_fields = [
-        'name', 'sex', 'city', 'intro'
+        'name', 'sex', 'city', 'intro', 'phone'
     ];
 
     /**

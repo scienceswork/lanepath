@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => '胡同小道',
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -185,6 +185,10 @@ return [
         \Germey\Geetest\GeetestServiceProvider::class,
         // 七牛云SDK Laravel版
         \zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
+        // Laravel-admin后台管理
+        \Encore\Admin\Providers\AdminServiceProvider::class,
+        // 用户邮箱验证
+        \Jrean\UserVerification\UserVerificationServiceProvider::class,
     ],
 
     /*
@@ -234,6 +238,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Breadcrumbs' => \DaveJamesMiller\Breadcrumbs\Facade::class,
         'Geetest' => \Germey\Geetest\Geetest::class,
+        'UserVerification' => \Jrean\UserVerification\Facades\UserVerification::class,
     ],
 
     // cdn地址

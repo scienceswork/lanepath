@@ -37,12 +37,12 @@
                 </li>
             </ul>
             <!-- 搜索 -->
-            <form action="#" class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="搜索">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
+            {{--<form action="#" class="navbar-form navbar-left" role="search">--}}
+                {{--<div class="form-group">--}}
+                    {{--<input type="text" class="form-control" placeholder="搜索">--}}
+                {{--</div>--}}
+                {{--<button type="submit" class="btn btn-default">搜索</button>--}}
+            {{--</form>--}}
             <ul class="nav navbar-nav navbar-right">
                 {{--判断是否登录--}}
                 @if(Auth::check())

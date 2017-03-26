@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.30 on 2017-03-22.
+ * Generated for Laravel 5.3.30 on 2017-03-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5818,7 +5818,7 @@ namespace Illuminate\Support\Facades {
          */
         public static function size($queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::size($queue);
+            return \Illuminate\Queue\RedisQueue::size($queue);
         }
         
         /**
@@ -5828,12 +5828,11 @@ namespace Illuminate\Support\Facades {
          * @param mixed $data
          * @param string $queue
          * @return mixed 
-         * @throws \Exception|\Throwable
          * @static 
          */
         public static function push($job, $data = '', $queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::push($job, $data, $queue);
+            return \Illuminate\Queue\RedisQueue::push($job, $data, $queue);
         }
         
         /**
@@ -5847,7 +5846,7 @@ namespace Illuminate\Support\Facades {
          */
         public static function pushRaw($payload, $queue = null, $options = array())
         {
-            return \Illuminate\Queue\SyncQueue::pushRaw($payload, $queue, $options);
+            return \Illuminate\Queue\RedisQueue::pushRaw($payload, $queue, $options);
         }
         
         /**
@@ -5862,7 +5861,7 @@ namespace Illuminate\Support\Facades {
          */
         public static function later($delay, $job, $data = '', $queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::later($delay, $job, $data, $queue);
+            return \Illuminate\Queue\RedisQueue::later($delay, $job, $data, $queue);
         }
         
         /**
@@ -5874,7 +5873,58 @@ namespace Illuminate\Support\Facades {
          */
         public static function pop($queue = null)
         {
-            return \Illuminate\Queue\SyncQueue::pop($queue);
+            return \Illuminate\Queue\RedisQueue::pop($queue);
+        }
+        
+        /**
+         * Delete a reserved job from the queue.
+         *
+         * @param string $queue
+         * @param string $job
+         * @return void 
+         * @static 
+         */
+        public static function deleteReserved($queue, $job)
+        {
+            \Illuminate\Queue\RedisQueue::deleteReserved($queue, $job);
+        }
+        
+        /**
+         * Delete a reserved job from the reserved queue and release it.
+         *
+         * @param string $queue
+         * @param string $job
+         * @param int $delay
+         * @return void 
+         * @static 
+         */
+        public static function deleteAndRelease($queue, $job, $delay)
+        {
+            \Illuminate\Queue\RedisQueue::deleteAndRelease($queue, $job, $delay);
+        }
+        
+        /**
+         * Migrate the delayed jobs that are ready to the regular queue.
+         *
+         * @param string $from
+         * @param string $to
+         * @return void 
+         * @static 
+         */
+        public static function migrateExpiredJobs($from, $to)
+        {
+            \Illuminate\Queue\RedisQueue::migrateExpiredJobs($from, $to);
+        }
+        
+        /**
+         * Get the underlying Redis instance.
+         *
+         * @return \Illuminate\Redis\Database 
+         * @static 
+         */
+        public static function getRedis()
+        {
+            return \Illuminate\Queue\RedisQueue::getRedis();
         }
         
         /**
@@ -5889,7 +5939,7 @@ namespace Illuminate\Support\Facades {
         public static function pushOn($queue, $job, $data = '')
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::pushOn($queue, $job, $data);
+            return \Illuminate\Queue\RedisQueue::pushOn($queue, $job, $data);
         }
         
         /**
@@ -5905,7 +5955,7 @@ namespace Illuminate\Support\Facades {
         public static function laterOn($queue, $delay, $job, $data = '')
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::laterOn($queue, $delay, $job, $data);
+            return \Illuminate\Queue\RedisQueue::laterOn($queue, $delay, $job, $data);
         }
         
         /**
@@ -5920,7 +5970,7 @@ namespace Illuminate\Support\Facades {
         public static function bulk($jobs, $data = '', $queue = null)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::bulk($jobs, $data, $queue);
+            return \Illuminate\Queue\RedisQueue::bulk($jobs, $data, $queue);
         }
         
         /**
@@ -5933,7 +5983,7 @@ namespace Illuminate\Support\Facades {
         public static function setContainer($container)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\SyncQueue::setContainer($container);
+            \Illuminate\Queue\RedisQueue::setContainer($container);
         }
         
     }         
@@ -6103,6 +6153,64 @@ namespace Illuminate\Support\Facades {
         public static function setSession($session)
         {
             \Illuminate\Routing\Redirector::setSession($session);
+        }
+        
+    }         
+
+    class Redis {
+        
+        /**
+         * Get a specific Redis connection instance.
+         *
+         * @param string $name
+         * @return \Predis\ClientInterface|null 
+         * @static 
+         */
+        public static function connection($name = 'default')
+        {
+            return \Illuminate\Redis\Database::connection($name);
+        }
+        
+        /**
+         * Run a command against the Redis database.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */
+        public static function command($method, $parameters = array())
+        {
+            return \Illuminate\Redis\Database::command($method, $parameters);
+        }
+        
+        /**
+         * Subscribe to a set of given channels for messages.
+         *
+         * @param array|string $channels
+         * @param \Closure $callback
+         * @param string $connection
+         * @param string $method
+         * @return void 
+         * @static 
+         */
+        public static function subscribe($channels, $callback, $connection = null, $method = 'subscribe')
+        {
+            \Illuminate\Redis\Database::subscribe($channels, $callback, $connection, $method);
+        }
+        
+        /**
+         * Subscribe to a set of given channels with wildcards.
+         *
+         * @param array|string $channels
+         * @param \Closure $callback
+         * @param string $connection
+         * @return void 
+         * @static 
+         */
+        public static function psubscribe($channels, $callback, $connection = null)
+        {
+            \Illuminate\Redis\Database::psubscribe($channels, $callback, $connection);
         }
         
     }         
@@ -11316,6 +11424,338 @@ namespace Germey\Geetest {
     }         
 }
     
+namespace Jrean\UserVerification\Facades {
+
+    class UserVerification {
+        
+        /**
+         * Generate and save a verification token for the given user.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @return bool 
+         * @static 
+         */
+        public static function generate($user)
+        {
+            return \Jrean\UserVerification\UserVerification::generate($user);
+        }
+        
+        /**
+         * Send by e-mail a link containing the verification token.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param string $subject
+         * @param string $from
+         * @param string $name
+         * @return bool 
+         * @throws \Jrean\UserVerification\Exceptions\ModelNotCompliantException
+         * @static 
+         */
+        public static function send($user, $subject = null, $from = null, $name = null)
+        {
+            return \Jrean\UserVerification\UserVerification::send($user, $subject, $from, $name);
+        }
+        
+        /**
+         * Queue and send by e-mail a link containing the verification token.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param string $subject
+         * @param string $from
+         * @param string $name
+         * @return bool 
+         * @throws \Jrean\UserVerification\Exceptions\ModelNotCompliantException
+         * @static 
+         */
+        public static function sendQueue($user, $subject = null, $from = null, $name = null)
+        {
+            return \Jrean\UserVerification\UserVerification::sendQueue($user, $subject, $from, $name);
+        }
+        
+        /**
+         * Queue on the given queue and send by e-mail a link containing the verification token.
+         *
+         * @param string $queue
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param string $subject
+         * @param string $from
+         * @param string $name
+         * @return bool 
+         * @throws \Jrean\UserVerification\Exceptions\ModelNotCompliantException
+         * @static 
+         */
+        public static function sendQueueOn($queue, $user, $subject = null, $from = null, $name = null)
+        {
+            return \Jrean\UserVerification\UserVerification::sendQueueOn($queue, $user, $subject, $from, $name);
+        }
+        
+        /**
+         * Send later by e-mail a link containing the verification token.
+         *
+         * @param int $seconds
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param string $subject
+         * @param string $from
+         * @param string $name
+         * @return bool 
+         * @throws \Jrean\UserVerification\Exceptions\ModelNotCompliantException
+         * @static 
+         */
+        public static function sendLater($seconds, $user, $subject = null, $from = null, $name = null)
+        {
+            return \Jrean\UserVerification\UserVerification::sendLater($seconds, $user, $subject, $from, $name);
+        }
+        
+        /**
+         * Send later on the given queue by e-mail a link containing the verification token.
+         *
+         * @param string $queue
+         * @param int $seconds
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param string $subject
+         * @param string $from
+         * @param string $name
+         * @return bool 
+         * @throws \Jrean\UserVerification\Exceptions\ModelNotCompliantException
+         * @static 
+         */
+        public static function sendLaterOn($queue, $seconds, $user, $subject = null, $from = null, $name = null)
+        {
+            return \Jrean\UserVerification\UserVerification::sendLaterOn($queue, $seconds, $user, $subject, $from, $name);
+        }
+        
+        /**
+         * Set the e-mail view name.
+         *
+         * @param string $name
+         * @return \Jrean\UserVerification 
+         * @static 
+         */
+        public static function emailView($name)
+        {
+            return \Jrean\UserVerification\UserVerification::emailView($name);
+        }
+        
+        /**
+         * Process the user verification for the given e-mail and token.
+         *
+         * @param string $email
+         * @param string $token
+         * @param string $userTable
+         * @return void 
+         * @static 
+         */
+        public static function process($email, $token, $userTable)
+        {
+            \Jrean\UserVerification\UserVerification::process($email, $token, $userTable);
+        }
+        
+    }         
+}
+    
+namespace Encore\Admin\Facades {
+
+    class Admin {
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @param \Closure $callable
+         * @return \Encore\Admin\Grid 
+         * @static 
+         */
+        public static function grid($model, $callable)
+        {
+            return \Encore\Admin\Admin::grid($model, $callable);
+        }
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @param \Closure $callable
+         * @return \Encore\Admin\Form 
+         * @static 
+         */
+        public static function form($model, $callable)
+        {
+            return \Encore\Admin\Admin::form($model, $callable);
+        }
+        
+        /**
+         * Build a tree.
+         *
+         * @param $model
+         * @return \Encore\Admin\Tree 
+         * @static 
+         */
+        public static function tree($model, $callable = null)
+        {
+            return \Encore\Admin\Admin::tree($model, $callable);
+        }
+        
+        /**
+         * 
+         *
+         * @param \Closure $callable
+         * @return \Encore\Admin\Layout\Content 
+         * @static 
+         */
+        public static function content($callable = null)
+        {
+            return \Encore\Admin\Admin::content($callable);
+        }
+        
+        /**
+         * 
+         *
+         * @param $model
+         * @return mixed 
+         * @static 
+         */
+        public static function getModel($model)
+        {
+            return \Encore\Admin\Admin::getModel($model);
+        }
+        
+        /**
+         * Get namespace of controllers.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function controllerNamespace()
+        {
+            return \Encore\Admin\Admin::controllerNamespace();
+        }
+        
+        /**
+         * Add css or get all css.
+         *
+         * @param null $css
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function css($css = null)
+        {
+            return \Encore\Admin\Admin::css($css);
+        }
+        
+        /**
+         * Add js or get all js.
+         *
+         * @param null $js
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function js($js = null)
+        {
+            return \Encore\Admin\Admin::js($js);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $script
+         * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void 
+         * @static 
+         */
+        public static function script($script = '')
+        {
+            return \Encore\Admin\Admin::script($script);
+        }
+        
+        /**
+         * Admin url.
+         *
+         * @param $url
+         * @return string 
+         * @static 
+         */
+        public static function url($url)
+        {
+            return \Encore\Admin\Admin::url($url);
+        }
+        
+        /**
+         * Left sider-bar menu.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function menu()
+        {
+            return \Encore\Admin\Admin::menu();
+        }
+        
+        /**
+         * Get admin title.
+         *
+         * @return \Config 
+         * @static 
+         */
+        public static function title()
+        {
+            return \Encore\Admin\Admin::title();
+        }
+        
+        /**
+         * Get current login user.
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function user()
+        {
+            return \Encore\Admin\Admin::user();
+        }
+        
+        /**
+         * Set navbar.
+         *
+         * @param \Closure $builder
+         * @static 
+         */
+        public static function navbar($builder)
+        {
+            return \Encore\Admin\Admin::navbar($builder);
+        }
+        
+        /**
+         * Get navbar object.
+         *
+         * @return \Encore\Admin\Widgets\Navbar 
+         * @static 
+         */
+        public static function getNavbar()
+        {
+            return \Encore\Admin\Admin::getNavbar();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerAuthRoutes()
+        {
+            return \Encore\Admin\Admin::registerAuthRoutes();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerHelpersRoutes($attributes = array())
+        {
+            return \Encore\Admin\Admin::registerHelpersRoutes($attributes);
+        }
+        
+    }         
+}
+    
     
 namespace {
 
@@ -11360,6 +11800,8 @@ namespace {
     class Queue extends \Illuminate\Support\Facades\Queue {}
     
     class Redirect extends \Illuminate\Support\Facades\Redirect {}
+    
+    class Redis extends \Illuminate\Support\Facades\Redis {}
     
     class Request extends \Illuminate\Support\Facades\Request {}
     
@@ -13219,6 +13661,10 @@ namespace {
     class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade {}
     
     class Geetest extends \Germey\Geetest\Geetest {}
+    
+    class UserVerification extends \Jrean\UserVerification\Facades\UserVerification {}
+    
+    class Admin extends \Encore\Admin\Facades\Admin {}
     
 }
 
